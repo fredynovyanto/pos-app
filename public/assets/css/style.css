@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body{
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+    color: #293133;
+}
+
+.h5{
+    font-size: 1rem;
+}
+p{
+    font-size: 0.8rem;
+}
+
+a{
+    color: #293133;
+}
+
+a:hover {
+    color: #0f1b1e;
+    text-decoration: none;
+}
+
+.bg-dark{
+    color: #fff;
+    background-color: #293133;
+}
+
+.btn-dark{
+    color: #fff;
+    background-color: #293133;
+    border-color: #293133;
+}
+
+.navbar{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background: #293133 !important;
+}
+.navbar-brand{
+    height: 2rem;
+}
+.navbar-nav li{
+    padding-right: .7rem;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+    padding-top: .8rem;
+}
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #ffd700;
+}
+
+span.notification-badge {
+    position: relative;
+    top: -10px;
+    right: 10px;
+    margin-right: -18px;
+}
+
+.carousel-caption{
+    transform: translateY(-50%);
+    bottom: initial;
+    top: 50%;
+}
+
+.card{
+    border:0;
+}
+
+/* rating */
+.rating-css div {
+    color: #ffd700;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.rating-css input {
+    display: none;
+}
+.rating-css input + label {
+    font-size: 20px;
+    text-shadow: 1px 1px 0 rgb(0 0 0 / 8%);
+    cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+    color: #c0c6c8;
+}
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+
+/* End of Star Rating */
