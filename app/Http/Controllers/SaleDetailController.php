@@ -100,9 +100,13 @@ class SaleDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $detail = SaleDetail::where('sale_id', $id)->first();
+        $detail = SaleDetail::find($id);
         $detail->amount = $request->amount;
         $detail->subtotal = $detail->selling_price * $request->amount - (($detail->discount * $request->amount) / 100 * $detail->selling_price);
+        $product = Product::find($detail->product_id);
+        if($product->stock < $request->amount){
+            return abort(400, 'Stok tidak cukup!');
+        }
         $detail->update();
     }
 
@@ -135,7 +139,7 @@ class SaleDetailController extends Controller
             $row['code'] = '<span class="label label-success">'. $item->product['code'] .'</span';
             $row['name'] = $item->product['name'];
             $row['selling_price']  = 'Rp. '. format_uang($item->selling_price);
-            $row['amount']      = '<input type="number" class="form-control input-sm quantity" data-id="'. $item->sale_id .'" value="'. $item->amount .'">';
+            $row['amount']      = '<input type="number" class="form-control input-sm quantity" data-id="'. $item->id .'" value="'. $item->amount .'">';
             $row['discount']      = $item->discount . '%';
             $row['subtotal']    = 'Rp. '. format_uang($item->subtotal);
             $row['aksi']        = '<div class="btn-group">

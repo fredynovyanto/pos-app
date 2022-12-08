@@ -188,7 +188,11 @@
                     });
                 })
                 .fail(errors => {
-                    alert('Tidak dapat menyimpan data');
+                    if(errors.status == 400) {
+                        alert(`Tidak dapat menyimpan data, ${errors.responseJSON.message}`);
+                    } else {
+                        alert('Tidak dapat menyimpan data');
+                    }
                     return;
                 });
             });
